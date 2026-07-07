@@ -1,0 +1,9 @@
+Self-hosted webfonts (no third-party requests at runtime — GDPR).
+
+Anton — Vernon Adams; Alexandria — Mohamed Gaber & TypeTogether;
+Permanent Marker — Font Diner.
+All licensed under the SIL Open Font License 1.1 (OFL) / Apache 2.0 (Permanent Marker),
+obtained via Google Fonts. Free to self-host and redistribute.
+
+These are interim stand-ins for the design's commercial faces
+(Korolev Condensed Bold / Korolev Medium / Newshound) pending webfont licenses.
