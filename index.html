@@ -13,7 +13,12 @@
                 Implemented as designed — confirm which is intended.
     TODO(team): fonts are OFL stand-ins (Anton / Alexandria / Permanent Marker) for the design's
                 commercial faces (Korolev Condensed Bold / Korolev Medium / Newshound).
-                Swap in the licensed woff2s when we have them — see assets/fonts/LICENSE.txt.
+                2026-07-15: wired in via Adobe Typekit CDN (kit lai7jek, see <link> above) as an
+                interim swap — h1/.dek use korolev-condensed 700, .lede/.register-link use korolev
+                500 (kit ships no true medium — see project brief), buttons/.soon use newshound 700,
+                footer uses newshound-subhead 600. OFL stand-ins remain as the CSS fallback stack.
+                Self-hosted woff2s (assets/fonts/LICENSE.txt) still pending if we want to drop the
+                third-party Typekit request for GDPR reasons.
   -->
 
   <!-- Open Graph / social preview -->
@@ -28,7 +33,12 @@
 
   <link rel="icon" type="image/png" href="assets/favicon.png">
 
-  <!-- Self-hosted fonts — no third-party requests (GDPR). -->
+  <!-- Adobe Typekit — licensed faces (korolev, newshound) per the TODO above.
+       Kit "lai7jek": korolev-condensed (700) for display, korolev (500/700, incl. italic)
+       for body accents, newshound-subhead (600) for footer, newshound (700) for buttons/soon line. -->
+  <link rel="stylesheet" href="https://use.typekit.net/lai7jek.css">
+
+  <!-- Self-hosted fonts — no third-party requests (GDPR). Kept as fallback stack. -->
   <link rel="preload" href="assets/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/alexandria-variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/permanent-marker-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -117,8 +127,8 @@
     }
 
     h1 {
-      font-family: var(--display);
-      font-weight: 400;
+      font-family: "korolev-condensed", var(--display);
+      font-weight: 700;
       text-transform: uppercase;
       font-size: clamp(64px, 17.4vw, 250px);
       line-height: 0.98;
@@ -128,7 +138,8 @@
     }
 
     .dek {
-      font-family: var(--display);
+      font-family: "korolev-condensed", var(--display);
+      font-weight: 700;
       text-transform: none;
       font-size: clamp(22px, 3.96vw, 57px);
       line-height: 1.08;
@@ -139,6 +150,7 @@
     }
 
     .lede {
+      font-family: "korolev", var(--body);
       font-weight: 500;
       font-size: clamp(15px, 1.95vw, 28px);
       line-height: 1.35;
@@ -157,7 +169,8 @@
       display: inline-flex; align-items: center; justify-content: center;
       border: none; background-color: transparent; cursor: pointer;
       text-decoration: none;
-      font-family: var(--hand);
+      font-family: "newshound", var(--hand);
+      font-weight: 700;
       text-transform: uppercase;
       color: var(--cream);
       background-position: center;
@@ -184,13 +197,15 @@
     }
 
     .soon {
-      font-family: var(--hand);
+      font-family: "newshound", var(--hand);
+      font-weight: 700;
       font-size: clamp(19px, 2.43vw, 35px);
       margin: clamp(26px, 3.2vw, 46px) 0 0;
     }
 
     .register-link {
       display: inline-block;
+      font-family: "korolev", var(--body);
       font-style: italic;
       font-weight: 500;
       font-size: clamp(16px, 2.2vw, 32px);
@@ -206,7 +221,8 @@
     footer {
       padding: clamp(16px, 2vw, 29px) clamp(18px, 2.6vw, 38px) clamp(18px, 2vw, 29px);
       display: flex; align-items: baseline; gap: 12px 24px; flex-wrap: wrap;
-      font-family: var(--hand);
+      font-family: "newshound-subhead", var(--hand);
+      font-weight: 600;
       font-size: clamp(14px, 1.95vw, 28px);
       letter-spacing: -0.01em;
     }
